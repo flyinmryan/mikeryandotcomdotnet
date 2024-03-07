@@ -113,7 +113,7 @@
                 <div class="col-1">&#183;</div>
                 <div class="col-1">&#183;</div>
             </div>
-            <div class="vert2">
+            <div class="runway-length">
                 <div class="row">
                     <div class="col-4">&#183;</div>
                     <div class="col-4">&#183;</div>
@@ -284,27 +284,31 @@
                 <div class="flash flasher2"></div>
             </div>
             <div class="row threshold">
-                <div class="col-1">|</div>
-                <div class="col-1">|</div>
-                <div class="col-1">|</div>
-                <div class="col-1">|</div>
-                <div class="col-1">|</div>
-                <div class="col-1">|</div>
-                <div class="col-1">|</div>
-                <div class="col-1">|</div>
-                <div class="col-1 d-none d-sm-block">|</div>
-                <div class="col-1 d-none d-md-block">|</div>
-                <div class="col-1 d-none d-md-block">|</div>
-                <div class="col-1">|</div>
+                <div class="col-1">|||</div>
+                <div class="col-1">|||</div>
+                <div class="col-1">|||</div>
+                <div class="col-1">|||</div>
+                <div class="col-1">|||</div>
+                <div class="col-1">|||</div>
+                <div class="col-1">|||</div>
+                <div class="col-1">|||</div>
+                <div class="col-1 d-none d-sm-block">|||</div>
+                <div class="col-1 d-none d-md-block">|||</div>
+                <div class="col-1 d-none d-md-block">|||</div>
+                <div class="col-1">|||</div>
                 <style>
                     .threshold {
                         flex-wrap: nowrap;
-                        justify-content: space-between;
+                        justify-content: space-around;
                         color: #ffffff20;
                         text-shadow: none;
                         position: relative;
                         top: -20px;
                         height: 0;
+                    }
+                    .threshold .col-1 {
+                        text-align: center;
+                        letter-spacing: -1px;
                     }
                 </style>
             </div>
@@ -452,25 +456,42 @@
             color: white;
         }
 
-        .vert2 {
+        .runway-length {
             color: white;
             text-shadow:
                 0 0 7px #fff,
                 0 0 10px #fff,
-                0 0 21px #fff,
+                0 0 21px #fff;
         }
 
-        .vert2 .row {
+        .runway-length .row {
             justify-content: space-between;
             text-align: center;
 
             & div:first-child {
                 text-align: left;
             }
-
             & div:last-child {
                 text-align: right;
+                padding-right: 2px;
             }
+
+            & div {
+                color: red;
+                text-shadow: 
+                0 0 7px red,
+                0 0 10px red,
+                0 0 21px red;
+            }
+
+            &:nth-child(n+6) div {
+                color: white;
+                text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff;
+            }
+
         }
 
         .flash-row {
@@ -481,7 +502,6 @@
             height: 8px;
             width: 3px;
             max-width: 3px;
-            border-radius: 13px;
             background-color: #fff;
             opacity: 0.05;
             animation: blinker 2s step-end infinite;
@@ -626,8 +646,8 @@
 </script>
 <script src="app.js" defer></script>
 <script>
-    //window.addEventListener("deviceorientation", function(event) {
-    //var event = new window.DeviceOrientationEvent("deviceorientation", fu);
+    //window.addEventListener("deviceorientation", function(event) { console.log(event); });
+    //var event = new window.DeviceOrientationEvent("deviceorientation");
     var heading;// = event;
     console.log(heading);
     //});
@@ -637,15 +657,8 @@
         overflow: hidden;
     }
 
-    @font-face {
-        font-family: KG;
-        src: url(KG.woff2) format("woff2"), url(KG.woff) format("woff");
-        font-weight: "normal";
-        font-style: normal
-    }
-
     .runway-number {
-        font-family: KG;
+        font-family: auto;
         font-size: 60px;
         color: rgb(99, 99, 99);
         text-shadow:
