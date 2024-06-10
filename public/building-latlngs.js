@@ -370,7 +370,7 @@ var buildings =
 `;
 
 
-
+/*
 // parse building into an array of { id, name } objects line by line
 buildings = buildings.split('\n').map(line => {
   const [id, name] = line.split('\t');
@@ -399,3 +399,4 @@ data = data.map((item, index) => {
 
 console.log(data);
 
+*/
