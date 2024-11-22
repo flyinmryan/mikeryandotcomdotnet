@@ -314,15 +314,14 @@
                 <style>
                     .threshold {
                         flex-wrap: nowrap;
-                        justify-content: space-around;
                         color: #ffffff20;
                         text-shadow: none;
                         position: relative;
                         top: -20px;
+                        left: 2px;
                         height: 0;
                     }
                     .threshold .col-1 {
-                        text-align: center;
                         letter-spacing: -1px;
                     }
                 </style>
@@ -347,34 +346,8 @@
                     font-size: 40px;
                     line-height: 20px;
                     justify-content: space-between;
-                    text-shadow:
-                        0 0 7px green,
-                        0 0 10px green;
-                        /*0 0 21px green;*/
-
-                    & div:first-child {
-                        text-align: left;
-                    }
-
-                    & div:last-child {
-                        text-align: right;
-                    }
-                }
-
-                .threshold-lights .col-1:first-child {
-                    position: absolute;
-                    left: -17px;
-                }
-
-                .threshold-lights .col-1:nth-child(2) {
-                    visibility: hidden;
                 }
             </style>
-            <!-- <div class="flash-row">
-                <div class="flasher2">
-                    <div class="flash"></div>
-                </div>
-            </div> -->
             <div class="left-side-bars"></div>
             <div class="row text-center approach-lighting-system">
                 <div class="col-1">&#183;</div>
@@ -393,21 +366,22 @@
             </div> -->
             <div class="sequenced-flashers"></div>
             <div class="right-side-bars"></div>
-        </div>
-        <div class="row horizontal-approach-lights">
-            <div class="col-1">&#183;</div>
-            <div class="col-1">&#183;</div>
-            <div class="col-1">&#183;</div>
-            <div class="col-1 d-none d-sm-block">&#183;</div>
-            <div class="col-1 d-none d-sm-block">&#183;</div>
-            <div class="col-1">&#183;</div>
-
+            <div class="row horizontal-approach-lights">
+                <div class="col-1">&#183;</div>
+                <div class="col-1">&#183;</div>
+                <div class="col-1">&#183;</div>
+                <div class="col-1 d-none d-sm-block">&#183;</div>
+                <div class="col-1 d-none d-sm-block">&#183;</div>
+                <div class="col-1">&#183;</div>
+    
+            </div>
         </div>
     </div>
     <style>
         .boarding-sequence {
             background: linear-gradient(to top, #000, #171100);
             overflow: hidden;
+            height: 100vh;
         }
 
         .horizon {
@@ -423,6 +397,9 @@
             perspective: 540px;
             min-width: 30%;
             max-width: 300px;
+            position: relative;
+            top: 10vh;
+            animation: approach 10s linear infinite;
         }
 
         .runway {
@@ -602,9 +579,9 @@
         }
 
         .horizontal-approach-lights {
-            transform: translateY(-250px) translateX(-10px);
+            transform: translateY(-128px) translateX(0px);
             font-size: 40px;
-            gap: 20px;
+            gap: 0px;
             text-align: center;
         }
 
@@ -661,6 +638,15 @@
                             white 0 0 42px,
                             white 0 0 82px,
                             white 0 0 92px;
+            }
+        }
+
+        @keyframes approach {
+            0% {
+                perspective: 710px;
+            }
+            100% {
+                perspective: 10px;
             }
         }
     </style>
